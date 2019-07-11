@@ -1,0 +1,123 @@
+/* pages/index/index.wxss */
+.back {/*遮盖画布*/
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 900vh;
+	background-color: #fff;
+	z-index: -1;
+}
+.searchint {
+	margin: 3px;
+	font-size: 30rpx;
+	position: relative;
+}
+.searchint .int {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	width: auto;
+	padding: 0 5px;
+	height: 70rpx;
+}
+.history {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	right: 0;
+	/* max-height: 300rpx; */
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	margin-top: -1px;
+	padding: 5rpx;
+	background-color: #fff;
+	z-index: 10;
+}
+.history .hisres {
+	margin: 8rpx 0;
+}
+.history .company {
+	margin: 0 10px;
+}
+/*搜索结果*/
+.result {
+	font-size: 30rpx;
+	color: #333;
+	margin: 3px;
+}
+.company {
+	color: #999;
+	margin: 10px 0;
+}
+.res {
+	padding: 8px 0;
+	margin-left: 40rpx;
+	border-top: 1px solid #ddd;
+	position: relative;
+}
+.res::before {/* 圆圈 */
+	content: '';
+	position: absolute;
+	left: -30rpx;
+	top: 8px;
+	transform: translateY(50%);
+	width: 20rpx;
+	height: 20rpx;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	border-width: 6rpx 0;
+	background-color: #eee;
+	z-index: 9;
+}
+.res::after {/* 竖线 */
+	content: '';
+	position: absolute;
+	left: -23rpx;
+	top: 8px;
+	width: 6rpx;
+	height: 100%;
+	transform: translateY(20rpx);
+	background-color: #eee;
+	z-index: 8;
+}
+.res0 {/* 第一个 */
+	color: #20cf37;
+}
+.res0::before {
+	background-color: #20cf37;
+}
+.res:last-child::after {/* 最后没有线 */
+	display: none;
+}
+.res .time {
+	margin-bottom: 5px;
+}
+/*错误信息*/
+.err {
+	color: #f00;
+}
+/*联系*/
+.contact {
+	margin: 0 10px;
+	color: rgb(57, 146, 219);
+}
+/*canvas*/
+.c {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 29;
+	transform: scale(0);
+	transition: all 1s;
+}
+.c.active {
+	transform: scale(1);
+}
+/*保存图片*/
+.save {
+	text-align: center;
+	font-size: 30rpx;
+	margin: 8rpx;
+	color: #0287af;
+	text-decoration: underline;
+}

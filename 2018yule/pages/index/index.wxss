@@ -1,0 +1,26 @@
+/**index.wxss**/
+.month {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: url('http://img15.3lian.com/2015/f1/190/d/72.jpg') no-repeat;
+  background-position: right bottom; 
+}
+.month .m {
+  flex: 1;
+  display: flex;
+}
+.month .m view {
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 3px rgba(0,0,0,.5);
+  border-radius: 5px;
+  font-size: 13px;
+}

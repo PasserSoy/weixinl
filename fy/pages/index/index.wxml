@@ -1,0 +1,34 @@
+<!--pages/index/index.wxml-->
+<view id='search'>
+  <view class="back"></view>
+  <view class='searchint'>
+    <input bindconfirm="intserh" bindfocus="intShow" bindblur="intHide" class="int" placeholder="请输入快递单号" confirm-type="查询" value="{{val}}"/>
+    <!-- 历史面板 -->
+    <view class="history" wx:if="{{intShow && history.length>0}}">
+      <block wx:for="{{history}}" wx:key="1">
+        <view class="hisres" bindtap="toInt" data-nu="{{item.nu}}">
+          <text class="company">{{item.company}}</text>
+          <text class="nu">{{item.nu}}</text>
+        </view>
+      </block>
+    </view>
+    <!--./ 历史面板 -->
+  </view>
+  <view class='result'>
+    <block wx:if="{{searchRes.errcode==0}}">
+      <view class="company">{{searchRes.data.com_CN}} {{searchRes.data.nu}}</view>
+      <block wx:for="{{searchRes.data.data}}" wx:key="1">
+        <view class="res res{{index}}">
+          <view class="time">{{item.time}}</view>
+          <view class="context">
+            {{item.context}}
+            <text class="contact" wx:if="{{item.tel!=''}}" data-tel="{{item.tel}}" bindtap="call">联系</text>
+          </view>
+        </view>
+      </block>
+      <view class='save' bindtap='toImg'>保存图片到本地</view>
+    </block>
+    <view wx:if="{{searchRes.errcode!=0}}" class="err">{{searchRes.errmsg}}</view>
+  </view>
+  <canvas class="c {{cShow?'active':''}}" canvas-id='myCanvas' style='width:100vw;height:{{cH}};'></canvas>
+</view>

@@ -1,0 +1,55 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx3a5233cce6920986",
+	"projectname": "express",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "zf",
+					"pathName": "pages/index/index",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "0x3EIrWz7BWQwcOifncVgL8syYDiJdfva2xGSWjnhj8@cr4dev",
+						"shareKey": "6TPM38lG9QZ_WURQtEQB4Vbk_uDyEHvYzDeHprsy-japHoM4zNKHdy9andmMTjPALb27SaOrLqREjBIKTv71oQ~~"
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,57 @@
+<!--pages/index/index.wxml-->
+<view id='search'>
+  <view class="loadChild {{loadEnd}}">稍等</view>
+  <view class='searchint {{loadEnd}}' style="height:{{searchintH}}rpx">
+    <input bindconfirm="intserh" bindfocus="intShow" bindblur="intHide" class="int" placeholder="请输入快递单号" confirm-type="查询" value="{{val}}"/>
+    <!-- 二维码 -->
+    <view class="scanCode">
+      <image src="/img/sys.png" bindtap="scanCode"/>
+    </view>
+    <!-- 历史面板 -->
+    <view class="history">
+      <block wx:for="{{history}}" wx:key="1">
+        <view class="hisres" bindtap="toInt" data-nu="{{item.nu}}">
+          <text class="company">{{item.company}}</text>
+          <text class="nu">{{item.nu}}</text>
+        </view>
+      </block>
+    </view>
+    <!--./ 历史面板 -->
+  </view>
+  <view class='result'>
+    <view class="backCont {{remove?'remove':''}}"></view><!-- 遮盖搜索结果 -->
+    <block wx:if="{{searchRes.errcode==0}}">
+      <view class="company">{{searchRes.data.com_CN}} {{searchRes.data.nu}}</view>
+      <block wx:for="{{searchRes.data.data}}" wx:key="1">
+        <view class="res res{{index}}">
+          <view class="time">{{item.time}}</view>
+          <view class="context">
+            {{item.context}}
+            <text class="contact" wx:if="{{item.tel!=''}}" data-tel="{{item.tel}}" bindtap="call">联系</text>
+          </view>
+        </view>
+      </block>
+      <view class="operation">
+        <button class='save' bindtap='toImg'>
+          <image src="/img/down.png"/>
+          保存
+        </button>
+        <button class="share1" open-type="share">
+          <image src="/img/share.png"/>
+          分享
+        </button>
+      </view>
+    </block>
+    <view wx:if="{{searchRes.errcode!=0}}" class="err">
+      <!-- {{searchRes.errmsg}}  -->
+      抱歉，没有查到相关信息，请检查单号是否正确，或点击
+      <text class="refresh" bindtap="refresh">刷新</text>
+      后重新查询。
+    </view>
+  </view>
+  <!-- 分享 -->
+  <button class="share" open-type="share">
+    <image src="/img/share.png"/>
+  </button>
+  <canvas class="c" hidden="{{cShow}}" canvas-id='myCanvas' style='height:{{cH}}px;'></canvas>
+</view>

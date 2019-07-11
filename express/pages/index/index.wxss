@@ -1,0 +1,226 @@
+/* pages/index/index.wxss */
+.searchint {
+	font-size: 30rpx;
+	position: fixed;
+	left: 50%;
+	top: 3px;
+	right: 50%;
+	z-index: 99;
+	overflow: hidden;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+	border-radius: 5px;
+	background-color: #fff;
+	transition: all .1s;
+}
+/*扫码*/
+.scanCode {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 9;
+	width: 90rpx;
+	height: 90rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.scanCode image {
+	width: 70rpx;
+	height: 70rpx;
+}
+.searchint.loadEnd {/* 延迟1s显示 */
+	animation: searchint .3s linear 1s forwards;
+}
+@keyframes searchint {
+	100% {right: 3px;left: 3px;padding: 0 5px;}
+}
+/*页面初始化动画*/
+.loadEnd.loadChild {
+	transition: opacity .3s linear .8s;/* 延迟隐藏 */
+	opacity: 0;
+}
+.loadChild {
+	color: #fff;
+	font-size: 36rpx;
+	width: 100rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	position: fixed;
+	z-index: 98;
+	top: 3px;
+	left: 50%;
+	margin-left: -50rpx;
+	background-color: teal;
+	border: 10rpx solid rgb(150, 231, 231);
+	border-radius: 50%;
+	animation: rote 1s linear infinite;
+}
+@keyframes rote {
+	0% {transform: rotate(45deg) scale(.9);}
+	50% {transform: rotate(-45deg) scale(1);}
+	100% {transform: rotate(45deg) scale(.9);}
+}
+.searchint .int {
+	height: 90rpx;
+	padding-right: 90rpx;
+	border: 0;
+}
+.history {
+	border-top: 1px solid #ddd;
+}
+.history .hisres {
+	height: 60rpx;
+	line-height: 60rpx;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.history .company {
+	margin-right: 10px;
+}
+/*搜索结果*/
+.result {
+	font-size: 30rpx;
+	color: #333;
+	margin: 3px;
+	margin-top: 115rpx;
+	padding-bottom: 90rpx;
+	position: relative;
+}
+.backCont {/*遮盖搜索结果*/
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	z-index: 29;
+}
+.backCont.remove {
+	top: 100%;
+	transition: top .3s linear;
+}
+.company {
+	color: #999;
+	margin: 10px 0;
+}
+.res {
+	padding: 8px 0;
+	margin-left: 40rpx;
+	border-top: 1px solid #ddd;
+	position: relative;
+}
+.res::before {/* 圆圈 */
+	content: '';
+	position: absolute;
+	left: -30rpx;
+	top: 8px;
+	transform: translateY(50%);
+	width: 20rpx;
+	height: 20rpx;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	border-width: 6rpx 0;
+	background-color: #eee;
+	z-index: 9;
+}
+.res::after {/* 竖线 */
+	content: '';
+	position: absolute;
+	left: -23rpx;
+	top: 8px;
+	width: 6rpx;
+	height: 100%;
+	transform: translateY(20rpx);
+	background-color: #eee;
+	z-index: 8;
+}
+.res0 {/* 第一个 */
+	color: #20cf37;
+}
+.res0::before {
+	background-color: #20cf37;
+}
+.res:last-child::after {/* 最后没有线 */
+	display: none;
+}
+.res .time {
+	margin-bottom: 5px;
+}
+/*错误信息*/
+.err {
+	color: #f00;
+}
+.refresh {
+	color: #0287af;
+	text-decoration: underline;
+}
+/*联系*/
+.contact {
+	margin: 0 10px;
+	color: rgb(57, 146, 219);
+}
+/*canvas*/
+.c {
+	/* position: fixed; */
+	left: 0;
+	top: 0;
+	width: 100vw;
+	/* z-index: -29; */
+}
+/* 操作 */
+.operation {
+	display: flex;
+	height: 80rpx;
+	line-height: 80rpx;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9;
+}
+.operation button {
+	flex: 1;
+	font-size: 30rpx;
+	background-color: #fff;
+	border-top: 1px solid #ddd;
+	border-radius: 10rpx 10rpx 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.operation button::after {
+	border: 0;
+}
+.operation button image {
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 5px;
+}
+/* 分享 */
+.share {
+	position: fixed;
+	right: 20rpx;
+	bottom: 90rpx;
+	z-index: 100;
+	width: 100rpx;
+	height: 100rpx;
+	padding: 0;
+	border: 1px solid #20cf37;
+	border-radius: 50%;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.share image {
+	width: 80%;
+	height: 80%;
+	animation: share 2s linear infinite;
+	animation-direction:alternate;
+}
+@keyframes share {
+	100% {transform: rotate(180deg);}
+}

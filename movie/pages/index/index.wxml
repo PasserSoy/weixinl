@@ -1,0 +1,20 @@
+<!--pages/index/index.wxml-->
+<scroll-view id="index" scroll-top="{{top}}" scroll-y scroll-with-animation="{{scrollam}}">
+  <input type='text' placeholder='查询电影' bindinput="search" class="search" confirm-type="search"/>
+  <view class='result'>
+    <view wx:if="{{isnull}}" class="isnull">
+      <view>暂无查询结果，请更换查询关键字!</view>
+    </view>
+    <block wx:for="{{result}}" wx:key="1">
+      <view class="cont" data-id="{{item.id}}" bindtap="navTo">
+        <view class="text">
+          <text class="tit">{{item.title}}</text>
+          <text class="sub-tit">{{item.sub_title}}</text>
+          <text class="year">{{item.year}}</text>
+          <text wx:if="{{item.rate}}" class="year">评分:{{item.rate}}</text>
+        </view>
+        <image src='{{item.img}}'/>
+      </view>      
+    </block>
+  </view>
+</scroll-view>

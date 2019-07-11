@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="month">
+  <view class="m">
+    <view class="m1 toD" bindtap="toDetail" data-num="1">1月</view>
+    <view class="m2 toD" bindtap="toDetail" data-num="2">2月</view>
+    <view class="m3 toD" bindtap="toDetail" data-num="3">3月</view>  
+  </view>
+  <view class="m">
+    <view class="m4 toD" bindtap="toDetail" data-num="4">4月</view>
+    <view class="m5 toD" bindtap="toDetail" data-num="5">5月</view>
+    <view class="m6 toD" bindtap="toDetail" data-num="6">6月</view>  
+  </view>
+  <view class="m">
+    <view class="m7 toD" bindtap="toDetail" data-num="7">7月</view>
+    <view class="m8 toD" bindtap="toDetail" data-num="8">8月</view>
+    <view class="m9 toD" bindtap="toDetail" data-num="9">9月</view>  
+  </view>
+  <view class="m">
+    <view class="m1 toD0" bindtap="toDetail" data-num="10">10月</view>
+    <view class="m1 toD1" bindtap="toDetail" data-num="11">11月</view>
+    <view class="m1 toD2" bindtap="toDetail" data-num="12">12月</view>  
+  </view>
+</view>
